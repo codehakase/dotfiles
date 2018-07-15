@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+echo "synching dotfiles to vcs..."
+
+cp ~/.EverVim/core/* ~/Dev/.dotfiles/vim/
+cp -r ~/.oh-my-zsh ~/Dev/.dotfiles/
+cp -r ~/.docker ~/Dev/.dotfiles
