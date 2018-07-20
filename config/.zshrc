@@ -97,6 +97,7 @@ source $ZSH/oh-my-zsh.sh
 
 # aliases
 alias v=/usr/local/bin/nvim
+alias dotsy="sh ~/Dev/.dotfiles/sync"
 alias gaa="git add ."
 alias gc="git commit -m "
 alias gp="git push"
