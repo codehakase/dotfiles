@@ -3,3 +3,10 @@
 echo "synching dotfiles to vcs..."
 
 cp ~/.config/nvim/init.vim ~/Dev/.dotfiles/vim/nvimrc
+cp ~/.zshrc ~/Dev/.dotfiles/config/.zshrc
+
+now=`date '+%y-%m-%d'`
+cd ~/Dev/.dotfiles 
+git add .
+git commit -m "Auto Syncing dotfiles.... $now"
+git push

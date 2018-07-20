@@ -16,8 +16,9 @@ syntax on
 " set tab as 4 spaces
 " set background=dark
 set textwidth=80
-set colorcolumn=80
-set number
+" set colorcolumn=80
+" set number
+set relativenumber
 set smarttab
 " ================ Folds ============================
 
@@ -99,10 +100,13 @@ syntax on
 
 set regexpengine=1
 syntax enable
+" colors
+set termguicolors
 set background=dark
-"colorscheme base16-ocean
+colorscheme NeoSolarized
 let javascript_enable_domhtmlcss=1
 let g:jsx_ext_required = 0
+let g:gitgutter_override_sign_column_highlight = 0
 
 " Remapping
 nmap <F1> :NERDTreeToggle<CR>
