@@ -101,9 +101,11 @@ syntax on
 set regexpengine=1
 syntax enable
 " colors
+set t_Co=256
 set termguicolors
+let base16colorspace=256
 set background=dark
-colorscheme NeoSolarized
+colorscheme base16-ocean
 let javascript_enable_domhtmlcss=1
 let g:jsx_ext_required = 0
 let g:gitgutter_override_sign_column_highlight = 0

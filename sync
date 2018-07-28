@@ -3,7 +3,10 @@
 echo "synching dotfiles to vcs..."
 
 cp ~/.config/nvim/init.vim ~/Dev/.dotfiles/vim/nvimrc
+cp -r ~/.config/nvim/colors ~/Dev/.dotfiles/vim/colors
 cp ~/.zshrc ~/Dev/.dotfiles/config/.zshrc
+cp ~/.tmux.conf ~/Dev/.dotfiles/config/tmux.conf
+
 
 now=`date '+%y-%m-%d'`
 cd ~/Dev/.dotfiles 

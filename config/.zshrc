@@ -8,7 +8,7 @@ export PATH=$PATH:$GOROOT/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/codehakase/.oh-my-zsh
-
+export TERM=xterm-256color
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -94,6 +94,20 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+
+# GPG
+GPG_TTY=$(tty)
+export GPG_TTY
+
+if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
+  source ~/.gnupg/.gpg-agent-info
+  export GPG_AGENT_INFO
+  GPG_TTY=$(tty)
+  export GPG_TTY
+else
+  eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
+fi
+
 
 # aliases
 alias v=/usr/local/bin/nvim
