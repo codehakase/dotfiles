@@ -61,6 +61,8 @@ Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'StanAngeloff/php.vim'
+ Plugin 'shawncplus/phpcomplete.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -83,7 +85,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_scss_checkers=["sass_lint"]
-
+let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
 " Airline Settings
 let g:airline#extensions#syntastic#enabled = 1
 
@@ -112,6 +114,11 @@ let g:gitgutter_override_sign_column_highlight = 0
 
 " Remapping
 nmap <F1> :NERDTreeToggle<CR>
+" Disable arrow keys => yeah let's get bad ass with vim :D
+nnoremap <Up> :echomsg "use k idiot!!!"<cr>
+nnoremap <Down> :echomsg "use j idiot!!!"<cr>
+nnoremap <Left> :echomsg "use h idiot!!!"<cr>
+nnoremap <Right> :echomsg "use l idiot!!!"<cr>
 
 " Remap common key patterns to Mac OSX
 inoremap <leader>s <Esc>:w<CR>i
@@ -146,6 +153,7 @@ au FileType go set noexpandtab
 au FileType go set shiftwidth=2
 au FileType go set softtabstop=2
 au FileType go set tabstop=2
+" autocmd BufWritePre *.go call go#lint#Run()
 
 let g:deoplete#enable_at_startup = 1
 
@@ -157,3 +165,11 @@ au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
 au FileType go nmap <F10> :GoTest -short<cr>
 au FileType go nmap <F9> :GoCoverageToggle -short<cr>
 au FileType go nmap <F12> <Plug>(go-def)
+
+" PHP settings
+let g:phpcomplete_mappings = {
+   \ 'jump_to_def': '<C-]>',
+   \ 'jump_to_def_split': '<C-W><C-]>',
+   \ 'jump_to_def_vsplit': '<C-W><C-\>',
+   \ 'jump_to_def_tabnew': '<C-W><C-[>',
+   \}
