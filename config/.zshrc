@@ -3,6 +3,8 @@
 
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
@@ -12,7 +14,13 @@ export TERM=xterm-256color
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="spaceship"
+
+
+# autocomplete
+ZSH_AUTOSUGGEST_USE_ASYNC=true
+
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -119,3 +127,7 @@ alias gpo="git push orign "
 
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+# Spaceship custom settings
+SPACESHIP_TIME_SHOW=false
+SPACESHIP_KUBECONTEXT_SHOW=false
