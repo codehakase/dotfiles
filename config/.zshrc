@@ -19,6 +19,7 @@ ZSH_THEME="spaceship"
 
 
 # autocomplete
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 
@@ -124,7 +125,9 @@ alias gaa="git add ."
 alias gc="git commit -m "
 alias gp="git push"
 alias gpo="git push orign "
-
+alias t="TERM=xterm-256color tmux -2"
+alias ta="t attach"
+alias td="t detach"
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 

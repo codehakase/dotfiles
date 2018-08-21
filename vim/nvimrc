@@ -62,7 +62,9 @@ Plugin 'fatih/vim-go'
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'StanAngeloff/php.vim'
- Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'haishanh/night-owl.vim'
+Plugin 'mhartington/oceanic-next'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -102,12 +104,18 @@ syntax on
 
 set regexpengine=1
 syntax enable
-" colors
+
+" colors & themes
 set t_Co=256
-set termguicolors
-let base16colorspace=256
+if (has("termguicolors"))
+ set termguicolors
+endif
 set background=dark
-colorscheme base16-ocean
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+let g:airline_theme='oceanicnext'
+colorscheme OceanicNext
+
 let javascript_enable_domhtmlcss=1
 let g:jsx_ext_required = 0
 let g:gitgutter_override_sign_column_highlight = 0
