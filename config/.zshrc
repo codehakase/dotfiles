@@ -128,9 +128,16 @@ alias gpo="git push orign "
 alias t="TERM=xterm-256color tmux -2"
 alias ta="t attach"
 alias td="t detach"
+alias electron "~/node_modules/electron/cli.js"
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # Spaceship custom settings
 SPACESHIP_TIME_SHOW=false
 SPACESHIP_KUBECONTEXT_SHOW=false
+
+# Kitty Term
+autoload -Uz compinit
+compinit
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin

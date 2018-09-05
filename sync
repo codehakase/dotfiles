@@ -6,7 +6,8 @@ cp ~/.config/nvim/init.vim ~/Dev/.dotfiles/vim/nvimrc
 cp -r ~/.config/nvim/colors ~/Dev/.dotfiles/vim/colors
 cp ~/.zshrc ~/Dev/.dotfiles/config/.zshrc
 cp ~/.tmux.conf ~/Dev/.dotfiles/config/tmux.conf
-
+cp ~/.config/kitty/kitty.conf ~/Dev/.dotfiles/config/kitty.conf
+cp ~/.config/alacritty/alacritty.yml ~/Dev/.dotfiles/config/alacritty.yml
 
 now=`date '+%y-%m-%d'`
 cd ~/Dev/.dotfiles 
