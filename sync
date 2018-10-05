@@ -8,6 +8,7 @@ cp ~/.zshrc ~/Dev/.dotfiles/config/.zshrc
 cp ~/.tmux.conf ~/Dev/.dotfiles/config/tmux.conf
 cp ~/.config/kitty/kitty.conf ~/Dev/.dotfiles/config/kitty.conf
 cp ~/.config/alacritty/alacritty.yml ~/Dev/.dotfiles/config/alacritty.yml
+cp ~/.gitconfig ~/Dev/.dotfiles/config/.gitconfig
 
 now=`date '+%y-%m-%d'`
 cd ~/Dev/.dotfiles 
