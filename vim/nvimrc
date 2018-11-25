@@ -65,6 +65,9 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'haishanh/night-owl.vim'
 Plugin 'mhartington/oceanic-next'
+Plugin 'isRuslan/vim-es6'
+Plugin 'editorconfig/editorconfig-vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -175,6 +178,9 @@ au FileType go nmap <F9> :GoCoverageToggle -short<cr>
 au FileType go nmap <F12> <Plug>(go-def)
 
 " PHP settings
+" save ctags to git hooks on file save
+au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags'
+
 let g:phpcomplete_mappings = {
    \ 'jump_to_def': '<C-]>',
    \ 'jump_to_def_split': '<C-W><C-]>',
