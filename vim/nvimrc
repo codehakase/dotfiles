@@ -16,6 +16,7 @@ syntax on
 " set tab as 4 spaces
 " set background=dark
 set textwidth=80
+set diffopt+=vertical
 " set colorcolumn=80
 " set number
 set relativenumber
