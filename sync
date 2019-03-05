@@ -2,16 +2,16 @@
 
 echo "synching dotfiles to vcs..."
 
-cp ~/.config/nvim/init.vim ~/Dev/.dotfiles/vim/nvimrc
-cp -r ~/.config/nvim/colors ~/Dev/.dotfiles/vim/colors
-cp ~/.zshrc ~/Dev/.dotfiles/config/.zshrc
-cp ~/tmux.conf ~/Dev/.dotfiles/config/tmux.conf
-cp ~/.config/kitty/kitty.conf ~/Dev/.dotfiles/config/kitty.conf
-cp ~/.config/alacritty/alacritty.yml ~/Dev/.dotfiles/config/alacritty.yml
-cp ~/.gitconfig ~/Dev/.dotfiles/config/.gitconfig
+cp ~/.config/nvim/init.vim ~/.dotfiles/vim/nvimrc
+cp -r ~/.config/nvim/colors ~/.dotfiles/vim/colors
+cp ~/.zshrc ~/.dotfiles/config/.zshrc
+cp ~/tmux.conf ~/.dotfiles/config/tmux.conf
+cp ~/.config/kitty/kitty.conf ~/.dotfiles/config/kitty.conf
+cp ~/.config/alacritty/alacritty.yml ~/.dotfiles/config/alacritty.yml
+cp ~/.gitconfig ~/.dotfiles/config/.gitconfig
 
 now=`date '+%y-%m-%d'`
-cd ~/Dev/.dotfiles 
+cd ~/.dotfiles 
 git add .
 git commit -m "Auto Syncing dotfiles.... $now"
 git push

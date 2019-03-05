@@ -66,6 +66,8 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'haishanh/night-owl.vim'
 Plugin 'mhartington/oceanic-next'
+Plugin 'rakr/vim-one'
+Plugin 'morhetz/gruvbox'
 Plugin 'isRuslan/vim-es6'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -119,9 +121,10 @@ endif
 set background=dark
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
-let g:airline_theme='oceanicnext'
-colorscheme OceanicNext
+let g:airline_theme='gruvbox'
+colorscheme gruvbox
 
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 let javascript_enable_domhtmlcss=1
 let g:jsx_ext_required = 0
 let g:gitgutter_override_sign_column_highlight = 0

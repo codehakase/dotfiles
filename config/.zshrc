@@ -10,7 +10,7 @@ export PATH=$PATH:$GOROOT/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/codehakase/.oh-my-zsh
-export TERM=xterm-256color
+export TERM=xterm-kitty
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -104,23 +104,17 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 
-# GPG
-GPG_TTY=$(tty)
-export GPG_TTY
-
-if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
-  source ~/.gnupg/.gpg-agent-info
-  export GPG_AGENT_INFO
-  GPG_TTY=$(tty)
-  export GPG_TTY
-else
-  eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
+# Handle ssh-clients with passphrase
+if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+  eval `ssh-agent`
+  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
 fi
-
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+ssh-add -l > /dev/null || ssh-add
 
 # aliases
 alias v=/usr/local/bin/nvim
-alias dotsy="sh ~/Dev/.dotfiles/sync"
+alias dotsy="sh ~/.dotfiles/sync"
 alias gaa="git add ."
 alias gc="git commit -m "
 alias gp="git push"
