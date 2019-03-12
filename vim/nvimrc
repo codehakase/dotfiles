@@ -21,6 +21,7 @@ set diffopt+=vertical
 " set number
 set relativenumber
 set smarttab
+set mouse=a
 " ================ Folds ============================
 
 set foldmethod=indent   "fold based on indent
@@ -71,6 +72,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'isRuslan/vim-es6'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'dracula/vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -121,8 +123,8 @@ endif
 set background=dark
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
-let g:airline_theme='gruvbox'
-colorscheme gruvbox
+" let g:airline_theme='dracula'
+" colorscheme dracula
 
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 let javascript_enable_domhtmlcss=1
