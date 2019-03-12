@@ -11,7 +11,7 @@ cp ~/.config/alacritty/alacritty.yml ~/dotfiles/config/alacritty.yml
 cp ~/.gitconfig ~/dotfiles/config/.gitconfig
 
 now=`date '+%y-%m-%d'`
-cd ~/.dotfiles 
+cd ~/dotfiles 
 git add .
 git commit -m "Auto Syncing dotfiles.... $now"
 git push
