@@ -1,7 +1,7 @@
 [user]
 	name = Francis Sunday
 	email = codehakase@gmail.com
-	signingkey = BF8083EAE1EA006A
+	signingkey = 5AAF0804CBE52A53
 [core]
 	editor = nvim
 	pager = diff-so-fancy | less --tabs=4 -RFX
