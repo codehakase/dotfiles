@@ -188,7 +188,8 @@ au FileType go nmap <F12> <Plug>(go-def)
 " PHP settings
 " save ctags to git hooks on file save
 " au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags'
-
+au BufWritePost *.php silent! !php -l %
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 let g:phpcomplete_mappings = {
    \ 'jump_to_def': '<C-]>',
    \ 'jump_to_def_split': '<C-W><C-]>',
