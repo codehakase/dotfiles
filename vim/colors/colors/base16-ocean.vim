@@ -99,7 +99,8 @@ endif
 
 " Neovim terminal colours
 if has("nvim")
-  let g:terminal_color_0 =  "#2b303b"
+  "let g:terminal_color_0 =  "#2b303b"
+  let g:terminal_color_0 =  "#000000"
   let g:terminal_color_1 =  "#bf616a"
   let g:terminal_color_2 =  "#a3be8c"
   let g:terminal_color_3 =  "#ebcb8b"

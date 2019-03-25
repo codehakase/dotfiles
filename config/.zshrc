@@ -1,7 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -11,14 +10,16 @@ export PATH=$PATH:$GOROOT/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/codehakase/.oh-my-zsh
+export TERM=xterm-256color
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="spaceship"
 
 
 # autocomplete
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 
@@ -103,13 +104,19 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 
-# Handle ssh-clients with passphrase
-if [ ! -S ~/.ssh/ssh_auth_sock ]; then
-  eval `ssh-agent`
-  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+# GPG
+GPG_TTY=$(tty)
+export GPG_TTY
+
+if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
+  source ~/.gnupg/.gpg-agent-info
+  export GPG_AGENT_INFO
+  GPG_TTY=$(tty)
+  export GPG_TTY
+else
+  eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
 fi
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
-ssh-add -l > /dev/null || ssh-add
+
 
 # aliases
 alias v=/usr/local/bin/nvim
@@ -133,4 +140,4 @@ SPACESHIP_KUBECONTEXT_SHOW=false
 autoload -Uz compinit
 compinit
 # Completion for kitty
-export GPG_TTY=$(tty)
+kitty + complete setup zsh | source /dev/stdin
