@@ -113,7 +113,7 @@ ssh-add -l > /dev/null || ssh-add
 
 # aliases
 alias v=/usr/local/bin/nvim
-alias dotsy="sh ~/.dotfiles/sync"
+alias dotsy="sh ~/dotfiles/sync"
 alias gaa="git add ."
 alias gc="git commit -m "
 alias gp="git push"
