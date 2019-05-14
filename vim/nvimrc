@@ -34,6 +34,7 @@ set incsearch       " Find the next match as we type the search
 set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
+set complete+=kspell
 
 " set the runtime path to include Vundle and initialize
 filetype off                  " required
@@ -126,6 +127,9 @@ let g:oceanic_next_terminal_italic = 1
 " let g:airline_theme='dracula'
 " colorscheme dracula
 
+" SpellCheck
+hi SpellBad cterm=underline ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00
+
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 let javascript_enable_domhtmlcss=1
 let g:jsx_ext_required = 0
@@ -204,3 +208,5 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
+" General checks
+autocmd BufRead,BufNewFile *.* setlocal spell
