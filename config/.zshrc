@@ -3,11 +3,12 @@
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export GOPATH=$HOME/go
-export GOROOT=/usr/local/opt/go/libexec
-export HOMEBREW_NO_AUTO_UPDATE=1
+export GOBIN=$GOPATH/bin
+export GOROOT=/usr/local/go
 
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+export HOMEBREW_NO_AUTO_UPDATE=1
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+#export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/codehakase/.oh-my-zsh
