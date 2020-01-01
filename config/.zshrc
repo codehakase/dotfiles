@@ -115,14 +115,16 @@ ssh-add -l > /dev/null || ssh-add
 # aliases
 alias v=/usr/local/bin/nvim
 alias dotsy="sh ~/dotfiles/sync"
+alias ga="git add"
 alias gaa="git add ."
 alias gc="git commit -m "
 alias gp="git push"
 alias gpo="git push orign "
-alias t="TERM=xterm-256color tmux -2"
+alias tm="TERM=xterm-256color tmux -2"
 alias ta="t attach"
 alias td="t detach"
 alias electron "~/node_modules/electron/cli.js"
+alias ngrok="~/ngrok"
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
@@ -135,3 +137,9 @@ autoload -Uz compinit
 compinit
 # Completion for kitty
 export GPG_TTY=$(tty)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/codehakase/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/codehakase/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/codehakase/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/codehakase/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

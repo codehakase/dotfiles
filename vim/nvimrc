@@ -201,6 +201,10 @@ let g:phpcomplete_mappings = {
    \ 'jump_to_def_vsplit': '<C-W><C-\>',
    \ 'jump_to_def_tabnew': '<C-W><C-[>',
    \}
+let g:syntastic_php_phpcs_exec = '/Users/codehakase/.composer/vendor/bin/phpcs'
+let g:syntastic_php_phpcs_args = '--standard=psr2'
+let g:syntastic_php_phpmd_exec = '/Users/codehakase/.composer/vendor/bin/phpmd'
+let g:syntastic_php_phpmd_post_args = 'cleancode,codesize,controversial,design,unusedcode'
 
 au FileType php nmap <F2> gg=G<cr>
 
