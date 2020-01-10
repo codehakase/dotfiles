@@ -127,6 +127,7 @@ alias ta="t attach"
 alias td="t detach"
 alias electron "~/node_modules/electron/cli.js"
 alias ngrok="~/ngrok"
+alias t="tail -f"
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
@@ -145,3 +146,4 @@ if [ -f '/Users/codehakase/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/codehakase/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/codehakase/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+eval "$(starship init zsh)"
