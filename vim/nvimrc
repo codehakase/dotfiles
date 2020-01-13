@@ -43,12 +43,12 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree.git'
+Plugin 'dense-analysis/ale'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/emmet-vim'
 Plugin 'Raimondi/delimitMate'
-Plugin 'Shougo/deoplete.nvim'
 Plugin 'janko-m/vim-test'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mustache/vim-mustache-handlebars'
@@ -147,14 +147,18 @@ nnoremap <Right> :echomsg "use l idiot!!!"<cr>
 inoremap <leader>s <Esc>:w<CR>i
 nnoremap <leader>s :w<CR>
 
+" Error and warning signs.
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+let g:airline#extensions#ale#enabled = 1
+
 let g:syntastic_filetype_map = { 
       \ "html.handlebars": "handlebars",
       \ "handlebars.html": "handlebars"
       \ }
 
 " Golang specific configs
-let g:go_bin_path = $HOME."/go/bin"
-"
+let g:go_bin_path = $HOME."/go/bin""
 " Code highlighting...
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -179,7 +183,6 @@ au FileType go set softtabstop=2
 au FileType go set tabstop=2
 " autocmd BufWritePre *.go call go#lint#Run()
 
-let g:deoplete#enable_at_startup = 1
 
 " Keymaps for Go Code
 au FileType go nmap <leader><SPACE> :GoDeclsDir<cr>
@@ -214,4 +217,4 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
 " General checks
-autocmd BufRead,BufNewFile *.* setlocal spell
+"autocmd BufRead,BufNewFile *.* setlocal spell
