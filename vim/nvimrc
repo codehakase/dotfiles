@@ -16,12 +16,9 @@ syntax on
 " set tab as 4 spaces
 " set background=dark
 set textwidth=80
-set diffopt+=vertical
-" set colorcolumn=80
-" set number
-set relativenumber
+set colorcolumn=80
+set number
 set smarttab
-set mouse=a
 " ================ Folds ============================
 
 set foldmethod=indent   "fold based on indent
@@ -34,7 +31,6 @@ set incsearch       " Find the next match as we type the search
 set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
-set complete+=kspell
 
 " set the runtime path to include Vundle and initialize
 filetype off                  " required
@@ -43,7 +39,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree.git'
-Plugin 'dense-analysis/ale'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'kchmck/vim-coffee-script'
@@ -58,23 +54,13 @@ Plugin 'mileszs/ack.vim'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'bling/vim-airline'
+Plugin 'chriskempson/base16-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'gcorne/vim-sass-lint'
 Plugin 'mxw/vim-jsx'
 Plugin 'fatih/vim-go'
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'haishanh/night-owl.vim'
-Plugin 'mhartington/oceanic-next'
-Plugin 'rakr/vim-one'
-Plugin 'morhetz/gruvbox'
-Plugin 'isRuslan/vim-es6'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'dracula/vim'
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -95,10 +81,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'eslint .'
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_scss_checkers=["sass_lint"]
-let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
+
 " Airline Settings
 let g:airline#extensions#syntastic#enabled = 1
 
@@ -115,51 +100,30 @@ syntax on
 
 set regexpengine=1
 syntax enable
-
-" colors & themes
 set t_Co=256
-if (has("termguicolors"))
- set termguicolors
-endif
+let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
-" let g:airline_theme='dracula'
-" colorscheme dracula
-
-" SpellCheck
-hi SpellBad cterm=underline ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00
-
-let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+colorscheme base16-ocean
 let javascript_enable_domhtmlcss=1
 let g:jsx_ext_required = 0
-let g:gitgutter_override_sign_column_highlight = 0
 
 " Remapping
 nmap <F1> :NERDTreeToggle<CR>
-" Disable arrow keys => yeah let's get bad ass with vim :D
-nnoremap <Up> :echomsg "use k idiot!!!"<cr>
-nnoremap <Down> :echomsg "use j idiot!!!"<cr>
-nnoremap <Left> :echomsg "use h idiot!!!"<cr>
-nnoremap <Right> :echomsg "use l idiot!!!"<cr>
 
 " Remap common key patterns to Mac OSX
 inoremap <leader>s <Esc>:w<CR>i
 nnoremap <leader>s :w<CR>
-
-" Error and warning signs.
-let g:ale_sign_error = '⤫'
-let g:ale_sign_warning = '⚠'
-let g:airline#extensions#ale#enabled = 1
 
 let g:syntastic_filetype_map = { 
       \ "html.handlebars": "handlebars",
       \ "handlebars.html": "handlebars"
       \ }
 
-" Golang specific configs
-let g:go_bin_path = $HOME."/go/bin""
-" Code highlighting...
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
@@ -167,54 +131,18 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
-let g:go_highlight_structs = 1
-let g:go_highlight_extra_types = 1
-let g:go_auto_sameids = 1
-let g:go_auto_type_info = 1
-let g:go_addtags_transform = "snakecase"
 
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:go_list_type = "quickfix"
 
-au FileType go set noexpandtab
-au FileType go set shiftwidth=2
-au FileType go set softtabstop=2
-au FileType go set tabstop=2
-" autocmd BufWritePre *.go call go#lint#Run()
-
-
-" Keymaps for Go Code
-au FileType go nmap <leader><SPACE> :GoDeclsDir<cr>
-au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
-au Filetype go nmap <leader>gah <Plug>(go-alternate-split)
-au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
-au FileType go nmap <F10> :GoTest -short<cr>
-au FileType go nmap <F9> :GoCoverageToggle -short<cr>
-au FileType go nmap <F12> <Plug>(go-def)
-
-" PHP settings
-" save ctags to git hooks on file save
-" au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags'
-au BufWritePost *.php silent! !php -l %
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-let g:phpcomplete_mappings = {
-   \ 'jump_to_def': '<C-]>',
-   \ 'jump_to_def_split': '<C-W><C-]>',
-   \ 'jump_to_def_vsplit': '<C-W><C-\>',
-   \ 'jump_to_def_tabnew': '<C-W><C-[>',
-   \}
-let g:syntastic_php_phpcs_exec = '/Users/codehakase/.composer/vendor/bin/phpcs'
-let g:syntastic_php_phpcs_args = '--standard=psr2'
-let g:syntastic_php_phpmd_exec = '/Users/codehakase/.composer/vendor/bin/phpmd'
-let g:syntastic_php_phpmd_post_args = 'cleancode,codesize,controversial,design,unusedcode'
-
-au FileType php nmap <F2> gg=G<cr>
-
-" Indent Guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
-
-" General checks
-"autocmd BufRead,BufNewFile *.* setlocal spell
+let g:deoplete#enable_at_startup = 1
+"" Disable Arrow Keys so you can become a pro Vim user.
+map  <up>    <nop>
+map  <down>  <nop>
+map  <left>  <nop>
+map  <right> <nop>
+imap <up>    <nop>
+imap <down>  <nop>
+imap <left>  <nop>
+imap <right> <nop>
