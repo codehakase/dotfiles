@@ -89,6 +89,9 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'prettier/vim-prettier'
 Plug 'scrooloose/nerdcommenter'
 Plug 'dense-analysis/ale'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'Galooshi/vim-import-js'
+"Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -178,6 +181,9 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠️'
+let g:ale_set_loclist = 0
+let g:ale_open_list = 1
+let g:ale_set_quickfix = 1
 
 " =================== KEYMAPS ======================
 nmap <F1> :NERDTreeToggle<CR>
@@ -202,6 +208,9 @@ au FileType go nmap <F9> :GoCoverageToggle -short<cr>
 au FileType go nmap <F12> <Plug>(go-def)
 
 " BUFFERS
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+" Import all missing JavaScript modules on file save
+autocmd BufWritePost *.js,*jsx,*ts ImportJSFix
 
 " =============== FORMATTERS =====================
 au FileType javascript setlocal formatprg=prettier
@@ -219,4 +228,5 @@ au FileType go set tabstop=2
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#jsx_bracket_same_line = 'false'
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+
+" =========== Helper functions ===============

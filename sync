@@ -10,6 +10,7 @@ cp ~/.config/kitty/kitty.conf ~/dotfiles/config/kitty.conf
 cp ~/.config/alacritty/alacritty.yml ~/dotfiles/config/alacritty.yml
 cp ~/.gitconfig ~/dotfiles/config/.gitconfig
 cp ~/.hyper.js ~/dotfiles/config/.hyper.js
+cp ~/.importjs.js ~/dotfiles/config/.importjs.js
 
 now=`date '+%y-%m-%d'`
 cd ~/dotfiles 
