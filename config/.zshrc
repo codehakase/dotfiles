@@ -5,7 +5,8 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export GOROOT=/usr/local/go
-export GO111MODULE=on
+export GO111MODULE=off
+export GOFLAGS=-mod=vendor
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH

@@ -1,3 +1,4 @@
+" ============ DEFAULTS =====================
 "set encoding=utf-8
 let $NODE_ENV="test"
 let test#strategy = "neovim"
@@ -17,7 +18,7 @@ syntax on
 " set background=dark
 set textwidth=80
 set diffopt+=vertical
-" set colorcolumn=80
+set colorcolumn=0
 " set number
 set relativenumber
 set smarttab
@@ -38,87 +39,61 @@ set smartcase       " ...unless we type a capital
 
 " set the runtime path to include Vundle and initialize
 filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'mattn/emmet-vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'janko-m/vim-test'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'tpope/vim-fugitive'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'mileszs/ack.vim'
-Plugin 'heavenshell/vim-jsdoc'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'bling/vim-airline'
-Plugin 'chriskempson/base16-vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'gcorne/vim-sass-lint'
-Plugin 'mxw/vim-jsx'
-Plugin 'fatih/vim-go'
-Plugin 'captbaritone/better-indent-support-for-php-with-html'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'haishanh/night-owl.vim'
-Plugin 'mhartington/oceanic-next'
-Plugin 'rakr/vim-one'
-Plugin 'morhetz/gruvbox'
-Plugin 'isRuslan/vim-es6'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'dracula/vim'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-
 " Ignoring files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-
-" Ctrl-P Settings
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git|tmp\|_build\|deps|build\'
-let g:ctrlp_show_hidden = 1
-
-" Syntastic Settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'eslint .'
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_scss_checkers=["sass_lint"]
-let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
-let g:syntastic_ignore_files = ['\m^/build/', '\m\c\.h$']
-" Airline Settings
-let g:airline#extensions#syntastic#enabled = 1
-
-" Miscellaneous
-syntax on
 
 filetype plugin indent on    " required
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-
-syntax on
-
 set regexpengine=1
 syntax enable
 
-" colors & them
+" =================== PLUGINS ==========================
+call plug#begin('~/.vim/plugged')
+Plug 'VundleVim/Vundle.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mattn/emmet-vim'
+Plug 'Raimondi/delimitMate'
+Plug 'Shougo/deoplete.nvim'
+Plug 'deoplete-plugins/deoplete-go', {'do': 'make'}
+Plug 'janko-m/vim-test'
+Plug 'airblade/vim-gitgutter'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'tpope/vim-fugitive'
+Plug 'elixir-lang/vim-elixir'
+Plug 'mileszs/ack.vim'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'flazz/vim-colorschemes'
+Plug 'bling/vim-airline'
+Plug 'chriskempson/base16-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'gcorne/vim-sass-lint'
+Plug 'mxw/vim-jsx'
+Plug 'fatih/vim-go'
+Plug 'captbaritone/better-indent-support-for-php-with-html'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'StanAngeloff/php.vim'
+Plug 'shawncplus/phpcomplete.vim'
+Plug 'haishanh/night-owl.vim'
+Plug 'mhartington/oceanic-next'
+Plug 'rakr/vim-one'
+Plug 'morhetz/gruvbox'
+Plug 'isRuslan/vim-es6'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'prettier/vim-prettier'
+Plug 'scrooloose/nerdcommenter'
+Plug 'dense-analysis/ale'
+
+" All of your Plugins must be added before the following line
+call plug#end()            " required
+
+" COLORS/THEME
 set t_Co=256
 if (has("termguicolors"))
  set termguicolors
@@ -129,30 +104,40 @@ let g:oceanic_next_terminal_italic = 1
 let base16colorspace=256  " Access colors present in 256 colorspace
 colorscheme base16-ocean
 
+" ======================= PRODUCTIVITY ==========================
+" Ctrl-P Settings
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git|tmp\|_build\|deps|build\'
+let g:ctrlp_show_hidden = 1
+
+" Airline Settings
+let g:airline#extensions#ale#enable = 1
 " SpellCheck
 hi SpellBad cterm=underline ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00
 
+"Misc
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
-let javascript_enable_domhtmlcss=1
-let g:jsx_ext_required = 0
 let g:gitgutter_override_sign_column_highlight = 0
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
-" Remapping
-nmap <F1> :NERDTreeToggle<CR>
-" Disable arrow keys => yeah let's get bad ass with vim :D
-nnoremap <Up> :echomsg "use k idiot!!!"<cr>
-nnoremap <Down> :echomsg "use j idiot!!!"<cr>
-nnoremap <Left> :echomsg "use h idiot!!!"<cr>
-nnoremap <Right> :echomsg "use l idiot!!!"<cr>
+" Indent Guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
 
-" Remap common key patterns to Mac OSX
-inoremap <leader>s <Esc>:w<CR>i
-nnoremap <leader>s :w<CR>
+" ============= LANGUAGE =======================
+" PHP
+au BufWritePost *.php silent! !php -l %
+let g:phpcomplete_mappings = {
+   \ 'jump_to_def': '<C-]>',
+   \ 'jump_to_def_split': '<C-W><C-]>',
+   \ 'jump_to_def_vsplit': '<C-W><C-\>',
+   \ 'jump_to_def_tabnew': '<C-W><C-[>',
+   \}
 
-let g:syntastic_filetype_map = { 
-      \ "html.handlebars": "handlebars",
-      \ "handlebars.html": "handlebars"
-      \ }
+au FileType php nmap <F2> gg=G<cr>
+let javascript_enable_domhtmlcss=1
 
 " Golang specific configs
 let g:go_bin_path = $HOME."/go/bin"
@@ -171,17 +156,41 @@ let g:go_auto_sameids = 1
 let g:go_auto_type_info = 1
 let g:go_addtags_transform = "snakecase"
 
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active'}
 let g:go_list_type = "quickfix"
 
-au FileType go set noexpandtab
-au FileType go set shiftwidth=2
-au FileType go set softtabstop=2
-au FileType go set tabstop=2
-" autocmd BufWritePre *.go call go#lint#Run()
+" Linters
+let g:ale_completion_tsserver_autoimport = 1
+let g:ale_php_phpcs_executeable='~/.composer/vendor/bin/phpcs'
+let g:ale_php_php_cs_fixer_executable='~/.composer/vendor/bin/php-cs-php-cs-fixer'
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'php': ['php-cs-fixer'],
+\   'vue': ['eslint']
+\}
 
-let g:deoplete#enable_at_startup = 1
+let g:ale_fixers = {
+  \    'javascript': ['eslint'],
+  \    'typescript': ['prettier', 'tslint'],
+  \    'vue': ['eslint'],
+  \    'scss': ['prettier'],
+  \    'html': ['prettier'],
+\}
+let g:ale_fix_on_save = 1
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠️'
+
+" =================== KEYMAPS ======================
+nmap <F1> :NERDTreeToggle<CR>
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle
+" Disable arrow keys => yeah let's get bad ass with vim :D
+nnoremap <Up> :echomsg "use k idiot!!!"<cr>
+nnoremap <Down> :echomsg "use j idiot!!!"<cr>
+nnoremap <Left> :echomsg "use h idiot!!!"<cr>
+nnoremap <Right> :echomsg "use l idiot!!!"<cr>
+" Remap common key patterns to Mac OSX
+inoremap <leader>s <Esc>:w<CR>i
+nnoremap <leader>s :w<CR>
 
 " Keymaps for Go Code
 au FileType go nmap <leader><SPACE> :GoDeclsDir<cr>
@@ -192,24 +201,22 @@ au FileType go nmap <F10> :GoTest -short<cr>
 au FileType go nmap <F9> :GoCoverageToggle -short<cr>
 au FileType go nmap <F12> <Plug>(go-def)
 
-" PHP settings
-" save ctags to git hooks on file save
-" au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags'
-au BufWritePost *.php silent! !php -l %
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-let g:phpcomplete_mappings = {
-   \ 'jump_to_def': '<C-]>',
-   \ 'jump_to_def_split': '<C-W><C-]>',
-   \ 'jump_to_def_vsplit': '<C-W><C-\>',
-   \ 'jump_to_def_tabnew': '<C-W><C-[>',
-   \}
+" BUFFERS
 
-au FileType php nmap <F2> gg=G<cr>
+" =============== FORMATTERS =====================
+au FileType javascript setlocal formatprg=prettier
+au FileType javascript.jsx setlocal formatprg=prettier
+au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+au FileType html setlocal formatprg=js-beautify\ --type\ html
+au FileType scss setlocal formatprg=prettier\ --parser\ css
+au FileType css setlocal formatprg=prettier\ --parser\ css
+" Golang
+au FileType go set noexpandtab
+au FileType go set shiftwidth=2
+au FileType go set softtabstop=2
+au FileType go set tabstop=2
 
-" Indent Guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
-
-" General checks
-" autocmd BufRead,BufNewFile *.* :SyntasticCheck
+let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#config#jsx_bracket_same_line = 'false'
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
