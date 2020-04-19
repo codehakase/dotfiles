@@ -8,6 +8,8 @@ set backspace=indent,eol,start
 set nocompatible              " be iMproved, required
 let mapleader=","
 set clipboard=unnamed
+set relativenumber
+set number
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
 
@@ -19,14 +21,12 @@ syntax on
 set textwidth=80
 set diffopt+=vertical
 set colorcolumn=0
-" set number
-set relativenumber
 set smarttab
 set mouse=a
 " ================ Folds ============================
 
 set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
+set foldnestmax=5       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
 " ================ Search ===========================
@@ -54,14 +54,13 @@ syntax enable
 call plug#begin('~/.vim/plugged')
 Plug 'VundleVim/Vundle.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mattn/emmet-vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/deoplete.nvim'
 Plug 'deoplete-plugins/deoplete-go', {'do': 'make'}
-Plug 'janko-m/vim-test'
 Plug 'airblade/vim-gitgutter'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-fugitive'
@@ -91,6 +90,17 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'dense-analysis/ale'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'Galooshi/vim-import-js'
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'wakatime/vim-wakatime'
+Plug 'majutsushi/tagbar'
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+Plug 'rking/ag.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'haishanh/night-owl.vim'
+Plug 'ianks/vim-tsx'
+Plug 'leafgarland/typescript-vim'
+Plug 'janko/vim-test'
 "Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 
 " All of your Plugins must be added before the following line
@@ -101,21 +111,27 @@ set t_Co=256
 if (has("termguicolors"))
  set termguicolors
 endif
-" set background=dark
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set background=dark
 let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-ocean
+colorscheme night-owl
 
 " ======================= PRODUCTIVITY ==========================
 " Ctrl-P Settings
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git|tmp\|_build\|deps|build\'
-let g:ctrlp_show_hidden = 1
+"let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git|tmp\|_build\|deps|build\'
+"let g:ctrlp_show_hidden = 1
 
 " Airline Settings
 let g:airline#extensions#ale#enable = 1
 " SpellCheck
 hi SpellBad cterm=underline ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00
+
+" Testing
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
 
 "Misc
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
@@ -125,9 +141,11 @@ let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 " Indent Guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_guide_size = 1
+"let g:indent_guides_start_level = 2
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " ============= LANGUAGE =======================
 " PHP
@@ -144,14 +162,16 @@ let javascript_enable_domhtmlcss=1
 
 " Golang specific configs
 let g:go_bin_path = $HOME."/go/bin"
+" Rust
+let g:rustfmt_autosave = 1
 "
 " Code highlighting...
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
+"let g:go_highlight_functions = 1
+"let g:go_highlight_methods = 1
+"let g:go_highlight_fields = 1
+"let g:go_highlight_types = 1
+"let g:go_highlight_operators = 1
+"let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 let g:go_highlight_structs = 1
 let g:go_highlight_extra_types = 1
@@ -164,14 +184,16 @@ let g:go_list_type = "quickfix"
 " Linters
 let g:ale_completion_tsserver_autoimport = 1
 let g:ale_php_phpcs_executeable='~/.composer/vendor/bin/phpcs'
-let g:ale_php_php_cs_fixer_executable='~/.composer/vendor/bin/php-cs-php-cs-fixer'
+let g:ale_php_php_cs_fixer_executable='~/.composer/vendor/bin/php-cs-fixer'
+let g:ale_php_phpmd_ruleset = 'phpmd.xml'
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'php': ['php-cs-fixer'],
+\   'php': ['php', 'phpmd', 'php-cs-fixer'],
 \   'vue': ['eslint']
 \}
 
 let g:ale_fixers = {
+  \    'php': ['php_cs_fixer', 'remove_trailing_lines', 'trim_whitespace'],
   \    'javascript': ['eslint'],
   \    'typescript': ['prettier', 'tslint'],
   \    'vue': ['eslint'],
@@ -179,14 +201,20 @@ let g:ale_fixers = {
   \    'html': ['prettier'],
 \}
 let g:ale_fix_on_save = 1
-let g:ale_sign_error = '⤫'
+let g:ale_sign_error = '🚨'
 let g:ale_sign_warning = '⚠️'
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 let g:ale_set_loclist = 0
 let g:ale_open_list = 1
 let g:ale_set_quickfix = 1
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#config_precedence = 'file-override'
 
 " =================== KEYMAPS ======================
 nmap <F1> :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR>
+nmap <F9> :Files<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 " Disable arrow keys => yeah let's get bad ass with vim :D
@@ -194,10 +222,12 @@ nnoremap <Up> :echomsg "use k idiot!!!"<cr>
 nnoremap <Down> :echomsg "use j idiot!!!"<cr>
 nnoremap <Left> :echomsg "use h idiot!!!"<cr>
 nnoremap <Right> :echomsg "use l idiot!!!"<cr>
+nnoremap <C-p> :Files<CR>
 " Remap common key patterns to Mac OSX
 inoremap <leader>s <Esc>:w<CR>i
 nnoremap <leader>s :w<CR>
-
+" remap jk to Esc
+inoremap jk <Esc>
 " Keymaps for Go Code
 au FileType go nmap <leader><SPACE> :GoDeclsDir<cr>
 au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
@@ -207,10 +237,23 @@ au FileType go nmap <F10> :GoTest -short<cr>
 au FileType go nmap <F9> :GoCoverageToggle -short<cr>
 au FileType go nmap <F12> <Plug>(go-def)
 
+" =========== Helper functions ===============
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+
+
 " BUFFERS
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
 " Import all missing JavaScript modules on file save
-autocmd BufWritePost *.js,*jsx,*ts ImportJSFix
+"autocmd BufWritePost *.js,*jsx,*ts ImportJSFix
+"
+" Identify .ts/.tsx files
+au BufNewFile,BufRead *.ts setlocal filetype=typescript
+au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+
+au FileType php nmap <leader><SPACE> :call PhpInsertUse()<CR>
 
 " =============== FORMATTERS =====================
 au FileType javascript setlocal formatprg=prettier
@@ -229,4 +272,15 @@ let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#jsx_bracket_same_line = 'false'
 let g:prettier#autoformat = 0
 
-" =========== Helper functions ===============
+
+" TMUX overrides
+if exists('$TMUX')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+if &term =~ '256color'
+  " Disable Background Color Erase (BCE) so that color schemes work
+  " properly within 256-color terminals
+  set t_ut=
+endif
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1

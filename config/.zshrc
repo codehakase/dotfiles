@@ -124,13 +124,14 @@ alias gaa="git add ."
 alias gc="git commit -S -m "
 alias gp="git push"
 alias gpo="git push orign "
-alias tm="tmux -2 -f ~/tmux.conf"
+alias tm="tmux -2 -f ~/tmux.conf new -s"
 alias ta="tmux attach"
 alias td="tmux detach"
 alias tk='tmux kill-session -t'
 alias electron "~/node_modules/electron/cli.js"
 alias ngrok="~/ngrok"
 alias t="tail -f"
+alias :q="exit"
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
@@ -149,4 +150,9 @@ if [ -f '/Users/codehakase/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/codehakase/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/codehakase/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Set FZF's default search
+if type ag &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
+fi
 eval "$(starship init zsh)"

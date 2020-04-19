@@ -41,11 +41,15 @@ cursorColor	config/.hyper.js	/^    cursorColor: 'rgba(248,28,229,0.8)',$/;"	p	cl
 cursorShape	config/.hyper.js	/^    cursorShape: 'BLOCK',$/;"	p	class:module.exports.config
 cyan	config/.hyper.js	/^      cyan: '#20C5C6',$/;"	p	class:module.exports.config.colors
 debug	.docker/daemon.json	/^  "debug" : true,$/;"	b
+declarationKeyword	config/.importjs.js	/^  declarationKeyword: 'import',$/;"	p	class:module.exports
 defaultSSHApp	config/.hyper.js	/^    defaultSSHApp: true,$/;"	p	class:module.exports.config
 do_dsf_stuff	diff-so-fancy	/^sub do_dsf_stuff {$/;"	s
 env	config/.hyper.js	/^    env: {},$/;"	p	class:module.exports.config
+environments	config/.importjs.js	/^  environments: ['node', 'browser'],$/;"	p	class:module.exports
+excludes	config/.importjs.js	/^  excludes: ['.\/react-components\/**\/test\/**'],$/;"	p	class:module.exports
 experimental	.docker/daemon.json	/^  "experimental" : true$/;"	b
 exports	config/.hyper.js	/^module.exports = {$/;"	c	class:module
+exports	config/.importjs.js	/^module.exports = {$/;"	c	class:module
 file_change_string	diff-so-fancy	/^sub file_change_string {$/;"	s
 flush	diff-so-fancy	/^  sub flush {$/;"	s
 fontFamily	config/.hyper.js	/^    fontFamily: '"Fira Code", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',$/;"	p	class:module.exports.config
@@ -1111,6 +1115,7 @@ should_print_unicode	diff-so-fancy	/^sub should_print_unicode {$/;"	s
 showHamburgerMenu	config/.hyper.js	/^    showHamburgerMenu: '',$/;"	p	class:module.exports.config
 showWindowControls	config/.hyper.js	/^    showWindowControls: '',$/;"	p	class:module.exports.config
 show_hunk	diff-so-fancy	/^  sub show_hunk {$/;"	s
+sortImports	config/.importjs.js	/^  sortImports: true,$/;"	p	class:module.exports
 split_line	diff-so-fancy	/^  sub split_line {$/;"	s
 start_line_calc	diff-so-fancy	/^sub start_line_calc {$/;"	s
 starts_with_ansi	diff-so-fancy	/^sub starts_with_ansi {$/;"	s
