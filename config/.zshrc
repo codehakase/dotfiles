@@ -132,6 +132,7 @@ alias electron "~/node_modules/electron/cli.js"
 alias ngrok="~/ngrok"
 alias t="tail -f"
 alias :q="exit"
+alias cls="clear"
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
