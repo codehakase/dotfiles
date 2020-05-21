@@ -217,17 +217,21 @@ nmap <F8> :TagbarToggle<CR>
 nmap <F9> :Files<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
+
 " Disable arrow keys => yeah let's get bad ass with vim :D
 nnoremap <Up> :echomsg "use k idiot!!!"<cr>
 nnoremap <Down> :echomsg "use j idiot!!!"<cr>
 nnoremap <Left> :echomsg "use h idiot!!!"<cr>
 nnoremap <Right> :echomsg "use l idiot!!!"<cr>
 nnoremap <C-p> :Files<CR>
+
 " Remap common key patterns to Mac OSX
 inoremap <leader>s <Esc>:w<CR>i
 nnoremap <leader>s :w<CR>
+
 " remap jk to Esc
 inoremap jk <Esc>
+
 " Keymaps for Go Code
 au FileType go nmap <leader><SPACE> :GoDeclsDir<cr>
 au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
@@ -236,6 +240,7 @@ au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
 au FileType go nmap <F10> :GoTest -short<cr>
 au FileType go nmap <F9> :GoCoverageToggle -short<cr>
 au FileType go nmap <F12> <Plug>(go-def)
+
 
 " =========== Helper functions ===============
 function! IPhpInsertUse()

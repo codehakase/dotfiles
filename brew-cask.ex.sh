@@ -36,7 +36,7 @@ brew cask install virtualbox
 brew cask install docker
 brew cask install minikube
 
-# Google Slavery
+# Google
 echo "Installing Google stuff...."
 brew cask install google-chrome
 
