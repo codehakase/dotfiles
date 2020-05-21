@@ -23,3 +23,7 @@ bootstrap_vim() {
 bootstrap_tmux() {
   ./tmux.ex.sh
 }
+
+link
+bootstrap_vim
+bootstrap_tmux

@@ -1,3 +1,5 @@
+" Hand crafted by @codehakase
+"
 " ============ DEFAULTS =====================
 "set encoding=utf-8
 let $NODE_ENV="test"

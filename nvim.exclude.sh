@@ -8,8 +8,11 @@ fi
 
 # Sync nvimrc file
 if [ ! -d $HOME/.config/nvim ]; then
-  mkdir -p $HOME/.config/nvim
-  ln -s ./vim/nvimrc $HOME/.config/nvim/init.vim
+	mkdir -p $HOME/.config/nvim
+	ln -s $PWD/vim/nvimrc $HOME/.config/nvim/init.vim
 else
-  ln -s ./vim/nvimrc $HOME/.config/nvim/init.vim
+	if [ ! -e $HOME/.config/nvim/init.vim ]; then
+		rm $HOME/.config/nvim/init.vim
+	fi
+	ln -s $PWD/vim/nvimrc $HOME/.config/nvim/init.vim
 fi
