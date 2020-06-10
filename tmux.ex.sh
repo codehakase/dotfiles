@@ -9,5 +9,5 @@ fi
 
 # Sync and load tmux config
 if [ ! -e $HOME/.tmux.conf ]; then
-  ln -s ./tmux/.tmux.conf $HOME/
+  ln -s $PWD/tmux/.tmux.conf $HOME/.tmux.conf
 fi

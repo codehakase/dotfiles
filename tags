@@ -1,73 +1,11 @@
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
-!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
-!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
-!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
-!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
-!_TAG_PROGRAM_VERSION	0.0.0	/feffe43/
-Dotfiles	README.md	/^# Dotfiles$/;"	c
-activeTab	config/.hyper.js	/^    activeTab: '🚀',$/;"	p	class:module.exports.config
-auths	.docker/config.json	/^  "auths" : {$/;"	o
-backgroundColor	config/.hyper.js	/^    backgroundColor: '#000',$/;"	p	class:module.exports.config
-bell	config/.hyper.js	/^    bell: 'SOUND',$/;"	p	class:module.exports.config
-black	config/.hyper.js	/^      black: '#000000',$/;"	p	class:module.exports.config.colors
-blue	config/.hyper.js	/^      blue: '#0A2FC4',$/;"	p	class:module.exports.config.colors
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
 bootstrap_tmux	sync.ex.sh	/^bootstrap_tmux() {$/;"	f
 bootstrap_vim	sync.ex.sh	/^bootstrap_vim() {$/;"	f
-borderColor	config/.hyper.js	/^    borderColor: '#333',$/;"	p	class:module.exports.config
-colors	config/.hyper.js	/^    colors: {$/;"	c	class:module.exports.config
-config	config/.hyper.js	/^  config: {$/;"	c	class:module.exports
-copyOnSelect	config/.hyper.js	/^    copyOnSelect: false,$/;"	p	class:module.exports.config
-css	config/.hyper.js	/^    css: '',$/;"	p	class:module.exports.config
-cursorAccentColor	config/.hyper.js	/^    cursorAccentColor: '#000',$/;"	p	class:module.exports.config
-cursorBlink	config/.hyper.js	/^    cursorBlink: false,$/;"	p	class:module.exports.config
-cursorColor	config/.hyper.js	/^    cursorColor: 'rgba(248,28,229,0.8)',$/;"	p	class:module.exports.config
-cursorShape	config/.hyper.js	/^    cursorShape: 'BLOCK',$/;"	p	class:module.exports.config
-cyan	config/.hyper.js	/^      cyan: '#20C5C6',$/;"	p	class:module.exports.config.colors
-debug	.docker/daemon.json	/^  "debug" : true,$/;"	b
-declarationKeyword	config/.importjs.js	/^  declarationKeyword: 'import',$/;"	p	class:module.exports
-defaultSSHApp	config/.hyper.js	/^    defaultSSHApp: true,$/;"	p	class:module.exports.config
-env	config/.hyper.js	/^    env: {},$/;"	p	class:module.exports.config
-environments	config/.importjs.js	/^  environments: ['node', 'browser'],$/;"	p	class:module.exports
-excludes	config/.importjs.js	/^  excludes: ['.\/react-components\/**\/test\/**'],$/;"	p	class:module.exports
-experimental	.docker/daemon.json	/^  "experimental" : true$/;"	b
-exports	config/.hyper.js	/^module.exports = {$/;"	c	class:module
-exports	config/.importjs.js	/^module.exports = {$/;"	c	class:module
-fontFamily	config/.hyper.js	/^    fontFamily: '"Fira Code", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',$/;"	p	class:module.exports.config
-fontSize	config/.hyper.js	/^    fontSize: 13,$/;"	p	class:module.exports.config
-fontWeight	config/.hyper.js	/^    fontWeight: '500',$/;"	p	class:module.exports.config
-fontWeightBold	config/.hyper.js	/^    fontWeightBold: 'bold',$/;"	p	class:module.exports.config
-foregroundColor	config/.hyper.js	/^    foregroundColor: '#fff',$/;"	p	class:module.exports.config
-green	config/.hyper.js	/^      green: '#1DC121',$/;"	p	class:module.exports.config.colors
-key	tmux/.tmux.conf	/^bind-key : command-prompt$/;"	k
-keymaps	config/.hyper.js	/^  keymaps: {$/;"	p	class:module.exports
-letterSpacing	config/.hyper.js	/^    letterSpacing: 0,$/;"	p	class:module.exports.config
-lightBlack	config/.hyper.js	/^      lightBlack: '#686868',$/;"	p	class:module.exports.config.colors
-lightBlue	config/.hyper.js	/^      lightBlue: '#6A76FB',$/;"	p	class:module.exports.config.colors
-lightCyan	config/.hyper.js	/^      lightCyan: '#68FDFE',$/;"	p	class:module.exports.config.colors
-lightGreen	config/.hyper.js	/^      lightGreen: '#67F86F',$/;"	p	class:module.exports.config.colors
-lightMagenta	config/.hyper.js	/^      lightMagenta: '#FD7CFC',$/;"	p	class:module.exports.config.colors
-lightRed	config/.hyper.js	/^      lightRed: '#FD6F6B',$/;"	p	class:module.exports.config.colors
-lightWhite	config/.hyper.js	/^      lightWhite: '#FFFFFF',$/;"	p	class:module.exports.config.colors
-lightYellow	config/.hyper.js	/^      lightYellow: '#FFFA72',$/;"	p	class:module.exports.config.colors
-lineHeight	config/.hyper.js	/^    lineHeight: 1,$/;"	p	class:module.exports.config
 link	sync.ex.sh	/^link () {$/;"	f
-localPlugins	config/.hyper.js	/^  localPlugins: [],$/;"	p	class:module.exports
-macOptionSelectionMode	config/.hyper.js	/^    macOptionSelectionMode: 'vertical',$/;"	p	class:module.exports.config
-magenta	config/.hyper.js	/^      magenta: '#C839C5',$/;"	p	class:module.exports.config.colors
-padding	config/.hyper.js	/^    padding: '12px 14px',$/;"	p	class:module.exports.config
-plugins	config/.hyper.js	/^  plugins: [$/;"	p	class:module.exports
-quickEdit	config/.hyper.js	/^    quickEdit: false,$/;"	p	class:module.exports.config
-red	config/.hyper.js	/^      red: '#C51E14',$/;"	p	class:module.exports.config.colors
-selectionColor	config/.hyper.js	/^    selectionColor: 'rgba(248,28,229,0.3)',$/;"	p	class:module.exports.config
-shell	config/.hyper.js	/^    shell: '\/usr\/local\/bin\/zsh',$/;"	p	class:module.exports.config
-shellArgs	config/.hyper.js	/^    shellArgs: ['--login'],$/;"	p	class:module.exports.config
-showHamburgerMenu	config/.hyper.js	/^    showHamburgerMenu: '',$/;"	p	class:module.exports.config
-showWindowControls	config/.hyper.js	/^    showWindowControls: '',$/;"	p	class:module.exports.config
-sortImports	config/.importjs.js	/^  sortImports: true,$/;"	p	class:module.exports
-termCSS	config/.hyper.js	/^    termCSS: '',$/;"	p	class:module.exports.config
-updateChannel	config/.hyper.js	/^    updateChannel: 'stable',$/;"	p	class:module.exports.config
-webGLRenderer	config/.hyper.js	/^    webGLRenderer: false,$/;"	p	class:module.exports.config
-white	config/.hyper.js	/^      white: '#C7C7C7',$/;"	p	class:module.exports.config.colors
-yellow	config/.hyper.js	/^      yellow: '#C7C329',$/;"	p	class:module.exports.config.colors
+module.exports.config	config/.hyper.js	/^  config: {$/;"	p
+module.exports.excludes	config/.importjs.js	/^  excludes: ['.\/react-components\/**\/test\/**'],$/;"	p
