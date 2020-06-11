@@ -16,3 +16,9 @@ else
 	fi
 	ln -s $PWD/vim/nvimrc $HOME/.config/nvim/init.vim
 fi
+
+# Sync Coc config
+if [ ! -e $HOME/.config/nvim/coc-settings.json ]; then
+  rm $HOME/.config/nvim/coc-settings.json
+fi
+ln -s $PWD/config/coc-settings.json $HOME/.config/nvim/coc-settings.json
