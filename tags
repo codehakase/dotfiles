@@ -7,9 +7,7 @@
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/feffe43/
 0	config/coc-settings.json	/^      "args": ["--stdio"],$/;"	s	array:languageserver.intelephense.args
-0	config/coc-settings.json	/^      "filetypes": ["go"]$/;"	s	array:languageserver.go.filetypes
 0	config/coc-settings.json	/^      "filetypes": ["php"],$/;"	s	array:languageserver.intelephense.filetypes
-0	config/coc-settings.json	/^      "rootPatterns": ["go.mod"],$/;"	s	array:languageserver.go.rootPatterns
 Dotfiles	README.md	/^# Dotfiles$/;"	c
 activeTab	config/.hyper.js	/^    activeTab: '🚀',$/;"	p	class:module.exports.config
 args	config/coc-settings.json	/^      "args": ["--stdio"],$/;"	a	object:languageserver.intelephense
@@ -22,7 +20,6 @@ bootstrap_tmux	sync.ex.sh	/^bootstrap_tmux() {$/;"	f
 bootstrap_vim	sync.ex.sh	/^bootstrap_vim() {$/;"	f
 borderColor	config/.hyper.js	/^    borderColor: '#333',$/;"	p	class:module.exports.config
 colors	config/.hyper.js	/^    colors: {$/;"	c	class:module.exports.config
-command	config/coc-settings.json	/^      "command": "gopls",$/;"	s	object:languageserver.go
 command	config/coc-settings.json	/^      "command": "intelephense",$/;"	s	object:languageserver.intelephense
 config	config/.hyper.js	/^  config: {$/;"	c	class:module.exports
 copyOnSelect	config/.hyper.js	/^    copyOnSelect: false,$/;"	p	class:module.exports.config
@@ -44,14 +41,12 @@ excludes	config/.importjs.js	/^  excludes: ['.\/react-components\/**\/test\/**']
 experimental	.docker/daemon.json	/^  "experimental" : true$/;"	b
 exports	config/.hyper.js	/^module.exports = {$/;"	c	class:module
 exports	config/.importjs.js	/^module.exports = {$/;"	c	class:module
-filetypes	config/coc-settings.json	/^      "filetypes": ["go"]$/;"	a	object:languageserver.go
 filetypes	config/coc-settings.json	/^      "filetypes": ["php"],$/;"	a	object:languageserver.intelephense
 fontFamily	config/.hyper.js	/^    fontFamily: '"Fira Code", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',$/;"	p	class:module.exports.config
 fontSize	config/.hyper.js	/^    fontSize: 13,$/;"	p	class:module.exports.config
 fontWeight	config/.hyper.js	/^    fontWeight: '500',$/;"	p	class:module.exports.config
 fontWeightBold	config/.hyper.js	/^    fontWeightBold: 'bold',$/;"	p	class:module.exports.config
 foregroundColor	config/.hyper.js	/^    foregroundColor: '#fff',$/;"	p	class:module.exports.config
-go	config/coc-settings.json	/^    "go": {$/;"	o	object:languageserver
 green	config/.hyper.js	/^      green: '#1DC121',$/;"	p	class:module.exports.config.colors
 initializationOptions	config/coc-settings.json	/^      "initializationOptions": {$/;"	o	object:languageserver.intelephense
 intelephense	config/coc-settings.json	/^    "intelephense": {$/;"	o	object:languageserver
@@ -76,7 +71,6 @@ padding	config/.hyper.js	/^    padding: '12px 14px',$/;"	p	class:module.exports.
 plugins	config/.hyper.js	/^  plugins: [$/;"	p	class:module.exports
 quickEdit	config/.hyper.js	/^    quickEdit: false,$/;"	p	class:module.exports.config
 red	config/.hyper.js	/^      red: '#C51E14',$/;"	p	class:module.exports.config.colors
-rootPatterns	config/coc-settings.json	/^      "rootPatterns": ["go.mod"],$/;"	a	object:languageserver.go
 selectionColor	config/.hyper.js	/^    selectionColor: 'rgba(248,28,229,0.3)',$/;"	p	class:module.exports.config
 shell	config/.hyper.js	/^    shell: '\/usr\/local\/bin\/zsh',$/;"	p	class:module.exports.config
 shellArgs	config/.hyper.js	/^    shellArgs: ['--login'],$/;"	p	class:module.exports.config
@@ -85,7 +79,6 @@ showWindowControls	config/.hyper.js	/^    showWindowControls: '',$/;"	p	class:mo
 sortImports	config/.importjs.js	/^  sortImports: true,$/;"	p	class:module.exports
 storagePath	config/coc-settings.json	/^        "storagePath": "\/tmp\/intelephense"$/;"	s	object:languageserver.intelephense.initializationOptions
 termCSS	config/.hyper.js	/^    termCSS: '',$/;"	p	class:module.exports.config
-trace.server	config/coc-settings.json	/^      "trace.server": "verbose",$/;"	s	object:languageserver.go
 updateChannel	config/.hyper.js	/^    updateChannel: 'stable',$/;"	p	class:module.exports.config
 webGLRenderer	config/.hyper.js	/^    webGLRenderer: false,$/;"	p	class:module.exports.config
 white	config/.hyper.js	/^      white: '#C7C7C7',$/;"	p	class:module.exports.config.colors

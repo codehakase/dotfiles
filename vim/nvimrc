@@ -72,7 +72,6 @@ Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'StanAngeloff/php.vim'
 Plug 'shawncplus/phpcomplete.vim'
-Plug 'haishanh/night-owl.vim'
 Plug 'isRuslan/vim-es6'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -92,8 +91,7 @@ Plug 'ianks/vim-tsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'janko/vim-test'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-"Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
+Plug 'tomasiser/vim-code-dark'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -105,8 +103,7 @@ if (has("termguicolors"))
 endif
 "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark
-let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme night-owl
+colorscheme codedark
 
 " ======================= PRODUCTIVITY ==========================
 " Ctrl-P Settings
@@ -115,6 +112,8 @@ colorscheme night-owl
 
 " Airline Settings
 let g:airline#extensions#ale#enable = 1
+let g:airline_theme = 'codedark'
+
 " SpellCheck
 hi SpellBad cterm=underline ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00
 

@@ -135,6 +135,7 @@ alias :q="exit"
 alias cls="clear"
 alias dev="cd ~/Dev/"
 alias tconf="v ~/tmux.conf"
+alias vc="v ~/.config/nvim/init.vim"
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
