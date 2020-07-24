@@ -3,12 +3,6 @@
   "diagnostic.warningSign": "⚠️",
   "diagnostic.infoSign": "⚠️",
   "languageserver": {
-    "go": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "trace.server": "verbose",
-      "filetypes": ["go"]
-    },
     "intelephense": {
       "command": "intelephense",
       "args": ["--stdio"],

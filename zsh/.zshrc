@@ -5,7 +5,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export GOROOT=/usr/local/go
-export GO111MODULE=off
+export GO111MODULE=on
 export GOFLAGS=-mod=vendor
 
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -133,6 +133,9 @@ alias ngrok="~/ngrok"
 alias t="tail -f"
 alias :q="exit"
 alias cls="clear"
+alias dev="cd ~/Dev/"
+alias tconf="v ~/tmux.conf"
+alias vc="v ~/.config/nvim/init.vim"
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
@@ -157,4 +160,3 @@ if type ag &> /dev/null; then
     export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
 fi
 eval "$(starship init zsh)"
-ctags=/usr/local/bin/ctags

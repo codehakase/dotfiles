@@ -56,20 +56,14 @@ syntax enable
 call plug#begin('~/.vim/plugged')
 Plug 'VundleVim/Vundle.vim'
 Plug 'scrooloose/nerdtree'
-"Plug 'kien/ctrlp.vim'
-Plug 'tpope/vim-surround'
-Plug 'kchmck/vim-coffee-script'
 Plug 'mattn/emmet-vim'
 Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-fugitive'
 Plug 'elixir-lang/vim-elixir'
 Plug 'mileszs/ack.vim'
 Plug 'heavenshell/vim-jsdoc'
-Plug 'flazz/vim-colorschemes'
 Plug 'bling/vim-airline'
-Plug 'chriskempson/base16-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'gcorne/vim-sass-lint'
 Plug 'mxw/vim-jsx'
@@ -78,10 +72,6 @@ Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'StanAngeloff/php.vim'
 Plug 'shawncplus/phpcomplete.vim'
-Plug 'haishanh/night-owl.vim'
-Plug 'mhartington/oceanic-next'
-Plug 'rakr/vim-one'
-Plug 'morhetz/gruvbox'
 Plug 'isRuslan/vim-es6'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -97,13 +87,11 @@ Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim'
-Plug 'haishanh/night-owl.vim'
 Plug 'ianks/vim-tsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'janko/vim-test'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-"Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
+Plug 'tomasiser/vim-code-dark'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -115,8 +103,7 @@ if (has("termguicolors"))
 endif
 "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark
-let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme night-owl
+colorscheme codedark
 
 " ======================= PRODUCTIVITY ==========================
 " Ctrl-P Settings
@@ -125,6 +112,8 @@ colorscheme night-owl
 
 " Airline Settings
 let g:airline#extensions#ale#enable = 1
+let g:airline_theme = 'codedark'
+
 " SpellCheck
 hi SpellBad cterm=underline ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00
 
@@ -169,6 +158,7 @@ let g:go_fmt_command = "goimports"
 let g:go_auto_sameids = 1
 let g:go_auto_type_info = 1
 let g:go_addtags_transform = "snakecase"
+"let g:go_code_completion_enabled = 0
 
 let g:go_list_type = "quickfix"
 
@@ -208,6 +198,7 @@ nmap <F8> :TagbarToggle<CR>
 nmap <F9> :Files<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
+nmap sc :source ~/.config/nvim/init.vim <cr>
 
 " Disable arrow keys => yeah let's get bad ass with vim :D
 nnoremap <Up> :echomsg "use k idiot!!!"<cr>
