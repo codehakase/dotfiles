@@ -82,7 +82,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'Galooshi/vim-import-js'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'wakatime/vim-wakatime'
-Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'rking/ag.vim'
@@ -125,7 +124,6 @@ nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
 "Misc
-let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 let g:gitgutter_override_sign_column_highlight = 0
 
 " Indent Guides
@@ -181,6 +179,8 @@ let g:ale_fixers = {
   \    'scss': ['prettier'],
   \    'html': ['prettier'],
 \}
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = '🚨'
 let g:ale_sign_warning = '⚠️'
@@ -232,7 +232,7 @@ endfunction
 
 
 " BUFFERS
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 " Import all missing JavaScript modules on file save
 "autocmd BufWritePost *.js,*jsx,*ts ImportJSFix
 "
@@ -249,6 +249,8 @@ au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 au FileType html setlocal formatprg=js-beautify\ --type\ html
 au FileType scss setlocal formatprg=prettier\ --parser\ css
 au FileType css setlocal formatprg=prettier\ --parser\ css
+
+
 " Golang
 au FileType go set noexpandtab
 au FileType go set shiftwidth=2
