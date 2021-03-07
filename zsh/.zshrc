@@ -116,7 +116,7 @@ ssh-add -l > /dev/null || ssh-add
 
 # aliases
 alias v=/usr/local/bin/nvim
-alias dotsy="sh ~/dotfiles/sync"
+alias dotsy="sh ~/.dotfiles/sync.ex"
 alias nah="git reset --soft HEAD~1"
 alias ga="git add"
 alias gs="git status"
@@ -160,3 +160,4 @@ if type ag &> /dev/null; then
     export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
 fi
 eval "$(starship init zsh)"
+export PATH="/usr/local/opt/ruby/bin:$PATH"

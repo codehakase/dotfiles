@@ -91,7 +91,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'janko/vim-test'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tomasiser/vim-code-dark'
-
+Plug 'vim-ruby/vim-ruby'
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 
