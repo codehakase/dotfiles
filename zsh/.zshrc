@@ -2,14 +2,15 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.bash_profile
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
-export GOROOT=/usr/local/go
+#export GOROOT=/usr/local/go
 export GO111MODULE=on
 export GOFLAGS=-mod=vendor
 
 export HOMEBREW_NO_AUTO_UPDATE=1
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+#export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 #export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # Path to your oh-my-zsh installation.
@@ -136,6 +137,8 @@ alias cls="clear"
 alias dev="cd ~/Dev/"
 alias tconf="v ~/tmux.conf"
 alias vc="v ~/.config/nvim/init.vim"
+alias rb="~/.rbenv/shims/ruby"
+alias rs="~/.rbenv/shims/rails"
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
@@ -149,15 +152,14 @@ compinit
 # Completion for kitty
 export GPG_TTY=$(tty)
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/codehakase/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/codehakase/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/codehakase/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/codehakase/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
 # Set FZF's default search
 if type ag &> /dev/null; then
     export FZF_DEFAULT_COMMAND='ag -p ~/.gitignore -g ""'
 fi
-eval "$(starship init zsh)"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/codehakase/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/codehakase/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/codehakase/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/codehakase/google-cloud-sdk/completion.zsh.inc'; fi

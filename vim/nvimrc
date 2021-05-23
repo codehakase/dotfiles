@@ -92,6 +92,7 @@ Plug 'janko/vim-test'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tomasiser/vim-code-dark'
 Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 
@@ -254,9 +255,9 @@ au FileType css setlocal formatprg=prettier\ --parser\ css
 
 " Golang
 au FileType go set noexpandtab
-au FileType go set shiftwidth=2
-au FileType go set softtabstop=2
-au FileType go set tabstop=2
+au FileType go set shiftwidth=4
+au FileType go set softtabstop=4
+au FileType go set tabstop=4
 
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#jsx_bracket_same_line = 'false'
