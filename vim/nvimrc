@@ -93,17 +93,18 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tomasiser/vim-code-dark'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
+Plug 'morhetz/gruvbox'
 " All of your Plugins must be added before the following line
 call plug#end()            " required
-
+let g:gruvbox_contrast_dark = 'hard'
+autocmd vimenter * ++nested colorscheme gruvbox
 " COLORS/THEME
 set t_Co=256
 if (has("termguicolors"))
  set termguicolors
 endif
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark
-colorscheme codedark
 
 " ======================= PRODUCTIVITY ==========================
 " Ctrl-P Settings
@@ -112,7 +113,7 @@ colorscheme codedark
 
 " Airline Settings
 let g:airline#extensions#ale#enable = 1
-let g:airline_theme = 'codedark'
+let g:airline_theme = 'gruvbox'
 
 " SpellCheck
 hi SpellBad cterm=underline ctermfg=009 ctermbg=011 guifg=#ff0000 guibg=#ffff00
