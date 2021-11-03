@@ -1,4 +1,5 @@
 {
+  "coc.preferences.jumpCommand": "tabe",
   "diagnostic.errorSign": "🚨",
   "diagnostic.warningSign": "⚠️",
   "diagnostic.infoSign": "⚠️",
@@ -11,5 +12,8 @@
         "storagePath": "/tmp/intelephense"
       }
     }
-  }
+  },
+  "solargraph.commandPath": "/Users/francissunday/.rbenv/shims/solargraph",
+  "solargraph.formatting": true
+
 }

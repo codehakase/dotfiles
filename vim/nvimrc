@@ -78,13 +78,11 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'prettier/vim-prettier'
 Plug 'scrooloose/nerdcommenter'
 Plug 'dense-analysis/ale'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'Galooshi/vim-import-js'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'wakatime/vim-wakatime'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'ianks/vim-tsx'
 Plug 'leafgarland/typescript-vim'
@@ -92,7 +90,6 @@ Plug 'janko/vim-test'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tomasiser/vim-code-dark'
 Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
 Plug 'morhetz/gruvbox'
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -110,6 +107,7 @@ set background=dark
 " Ctrl-P Settings
 "let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|.git|tmp\|_build\|deps|build\'
 "let g:ctrlp_show_hidden = 1
+cnoreabbrev Ack Ack!
 
 " Airline Settings
 let g:airline#extensions#ale#enable = 1
@@ -371,55 +369,55 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+  xmap <leader>a  <Plug>(coc-codeaction-selected)
+  nmap <leader>a  <Plug>(coc-codeaction-selected)
 
-" Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+  " Remap keys for applying codeAction to the current buffer.
+  nmap <leader>ac  <Plug>(coc-codeaction)
+  " Apply AutoFix to problem on the current line.
+  nmap <leader>qf  <Plug>(coc-fix-current)
 
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
+  " Map function and class text objects
+  " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+  xmap if <Plug>(coc-funcobj-i)
+  omap if <Plug>(coc-funcobj-i)
+  xmap af <Plug>(coc-funcobj-a)
+  omap af <Plug>(coc-funcobj-a)
+  xmap ic <Plug>(coc-classobj-i)
+  omap ic <Plug>(coc-classobj-i)
+  xmap ac <Plug>(coc-classobj-a)
+  omap ac <Plug>(coc-classobj-a)
 
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
+  " Use CTRL-S for selections ranges.
+  " Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
+  nmap <silent> <C-s> <Plug>(coc-range-select)
+  xmap <silent> <C-s> <Plug>(coc-range-select)
 
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+  " Add `:Format` command to format current buffer.
+  command! -nargs=0 Format :call CocAction('format')
 
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+  " Add `:Fold` command to fold current buffer.
+  command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+  " Add `:OR` command for organize imports of the current buffer.
+  command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+  " Add (Neo)Vim's native statusline support.
+  " NOTE: Please see `:h coc-status` for integrations with external plugins that
+  " provide custom statusline: lightline.vim, vim-airline.
+  set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Mappings using CoCList:
-" Show all diagnostics.
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+  " Mappings using CoCList:
+  " Show all diagnostics.
+  nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+  " Manage extensions.
+  nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+  " Show commands.
+  nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+  " Find symbol of current document.
+  nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+  " Search workspace symbols.
+  nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
